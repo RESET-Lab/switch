@@ -65,19 +65,16 @@ def load_inputs(mod, switch_data, inputs_dir):
     switch_data.load_aug(
         filename=os.path.join(inputs_dir, 'scaling.csv'),
         optional=True,
-        autoselect=True,
         param=(mod.cost_scal, mod.equity_scal, mod.health_scal, mod.alpha))
     
     switch_data.load_aug(
         filename=os.path.join(inputs_dir, 'regional_tech.csv'),
         optional=True,
-        autoselect=True,
         index=mod.TECHS,
         param=(mod.system_min, mod.health_multiplier))
     switch_data.load_aug(
         filename=os.path.join(inputs_dir, 'equity_data.csv'),
         optional=True,
-        autoselect=True,
         index=mod.LOAD_ZONES,
         param=(mod.equity_index, mod.health_index))
 

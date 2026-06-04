@@ -87,21 +87,18 @@ def load_inputs(mod, switch_data, inputs_dir):
     switch_data.load_aug(
         filename=os.path.join(inputs_dir, 'mga.csv'),
         optional=True,
-        autoselect=True,
         optional_params=['penalty_multiplier'],
         param=(mod.mga_slack, mod.opt_cost, mod.penalty_multiplier))
     
     switch_data.load_aug(
         filename=os.path.join(inputs_dir, 'mga_costs.csv'),
         optional=True,
-        autoselect=True,
         index=mod.PERIODS,
         param=(mod.SystemCostNPVPeriod))
     
     switch_data.load_aug(
         filename=os.path.join(inputs_dir, 'mga_tech.csv'),
         optional=True,
-        autoselect=True,
         index=mod.TECHS,
         param=(mod.is_storage, mod.is_mga))
 

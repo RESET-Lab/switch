@@ -425,7 +425,6 @@ def load_inputs(mod, switch_data, inputs_dir):
     """
     switch_data.load_aug(
         filename=os.path.join(inputs_dir, 'ccs_projects_info.csv'),
-        auto_select=True,
         optional_params=["ccs_tech","ccs_load_zone","ccs_capture_rate_mwh_per_ton",
                          "ccs_capacity_limit_mtons","ccs_energy_source", "ccs_fuel_mmbtu_per_ton",
                          "ccs_min_build_capacity","ccs_max_age"],
@@ -437,7 +436,6 @@ def load_inputs(mod, switch_data, inputs_dir):
 
     switch_data.load_aug(
         filename=os.path.join(inputs_dir, 'dac_credit.csv'),
-        autoselect=True,
         index=mod.dac_credit_years,
         param=(mod.dac_credit_value))
     # Construct sets of capacity-limited, ccs-capable and unit-size-specified
@@ -448,7 +446,6 @@ def load_inputs(mod, switch_data, inputs_dir):
             None: list(switch_data.data(name='ccs_capacity_limit_mtons').keys())}
     switch_data.load_aug(
         filename=os.path.join(inputs_dir, 'ccs_build_costs.csv'),
-        auto_select=True,
         index=mod.CCS_BLD_YRS,
         param=(mod.ccs_overnight_cost, mod.ccs_fixed_om, mod.ccs_variable_om))
     # read FUELS_FOR_MULTIFUEL_GEN from ccs_multiple_fuels.dat if available

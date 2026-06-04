@@ -686,7 +686,6 @@ def load_inputs(m, switch_data, inputs_dir):
     switch_data.load_aug(
         filename=os.path.join(inputs_dir, 'hydrogen_generation_costs.csv'),
         optional=False,
-        auto_select=True,
         index = m.H2_GEN_PERIODS,
         param=(
             m.capital_cost_per_kgh,
@@ -698,7 +697,6 @@ def load_inputs(m, switch_data, inputs_dir):
     switch_data.load_aug(
         filename=os.path.join(inputs_dir, 'hydrogen_projects_costs.csv'),
         optional=False,
-        auto_select=True,
         index = m.H2_CONV_PERIODS,
         param=(
             m.hydrogen_conv_capital_cost_per_mw,
@@ -709,7 +707,6 @@ def load_inputs(m, switch_data, inputs_dir):
     switch_data.load_aug(
         filename=os.path.join(inputs_dir, 'hydrogen_generation_params.csv'),
         optional=False,
-        auto_select=True,
         index=m.HYDROGEN_GEN,
         param=(
             m.kg_per_unit,
@@ -722,7 +719,6 @@ def load_inputs(m, switch_data, inputs_dir):
     switch_data.load_aug(
         filename=os.path.join(inputs_dir, 'hydrogen_projects_params.csv'),
         optional=False,
-        auto_select=True,
         index=m.H2_CONVERTERS,
         param=(
             m.hydrogen_conv_life_years,
@@ -734,7 +730,6 @@ def load_inputs(m, switch_data, inputs_dir):
         filename=os.path.join(inputs_dir, 'hydrogen_emissions.csv'),
         optional=False,
         #optional_params=(m.hydrogen_emission_cap),
-        auto_select=True,
         index=m.PERIODS,
         param=(m.hydrogen_emission_cap)
     )
@@ -742,7 +737,7 @@ def load_inputs(m, switch_data, inputs_dir):
     switch_data.load_aug(
         filename=os.path.join(inputs_dir, 'hydrogen_storage_costs.csv'),
         optional=False,
-        auto_select=True, index=m.H2_STORAGE_BUILD_YRS,
+        index=m.H2_STORAGE_BUILD_YRS,
         param=(
             m.h2_storage_capital_cost_per_kg,
             m.h2_storage_capital_cost_per_kg_per_hour,
@@ -754,7 +749,7 @@ def load_inputs(m, switch_data, inputs_dir):
     switch_data.load_aug(
         filename=os.path.join(inputs_dir, 'hydrogen_storage_params.csv'),
         optional=False,
-        auto_select=True, index=m.H2_STORAGE_PROJECTS,
+        index=m.H2_STORAGE_PROJECTS,
         param=(
             m.h2_storage_life_years,
             m.h2_storage_minimum_size_kg,
@@ -765,7 +760,7 @@ def load_inputs(m, switch_data, inputs_dir):
 
     switch_data.load_aug(
         filename=os.path.join(inputs_dir, 'hydrogen_loads.csv'),
-        optional=False, auto_select=True,
+        optional=False,
         param=(
             m.hydrogen_demand_kg,
         )
@@ -773,7 +768,6 @@ def load_inputs(m, switch_data, inputs_dir):
 
     switch_data.load_aug(
         filename=os.path.join(inputs_dir, 'pipelines.csv'),
-        auto_select=True,
         index=m.TRANSPORT_ROUTES,
         optional_params=(
             'pipes_dbid', 'pipes_derating_factor',
@@ -787,7 +781,7 @@ def load_inputs(m, switch_data, inputs_dir):
 
     switch_data.load_aug(
         filename=os.path.join(inputs_dir, 'pipes_params.csv'),
-        optional=True, auto_select=True,
+        optional=True,
         index=m.TRANSPORT_PROJECTS,
         param=(
             m.pipes_capital_cost_per_kg_km, m.pipes_lifetime_yrs,
@@ -797,13 +791,12 @@ def load_inputs(m, switch_data, inputs_dir):
 
     switch_data.load_aug(
         filename=os.path.join(inputs_dir, 'h2_tax_credits.csv'),
-        autoselect=True,
         index=m.h2_credit_years,
         param=(m.h2_ptc_value, m.h2_itc_value, m.h2_carbon_capture_credit))
     
     switch_data.load_aug(
         filename=os.path.join(inputs_dir, 'h2_storage_limits.csv'),
-        autoselect=True, optional=True,
+        optional=True,
         index=(m.H2_STORAGE_BUILD_YRS_ZONES),
         param=(m.h2_storage_cap))
 

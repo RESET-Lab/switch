@@ -165,7 +165,6 @@ def load_inputs(mod, switch_data, inputs_dir):
     #Input file has values for the PTC and the percent of the PTC each project will receive when built in a given period
     switch_data.load_aug(
         filename=os.path.join(inputs_dir, 'tax_credits.csv'),
-        autoselect=True,
         index=mod.credit_years,
         param=(mod.ptc_value, mod.itc_value, mod.carbon_capture_credit))
 
