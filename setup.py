@@ -97,7 +97,7 @@ setup(
         # used for input upgrades and some reporting
         "pandas",
         # provides pkg_resources used by upgrade scripts
-        "setuptools",
+        "setuptools<81.0.0",
         # Note: if users pick pyomo <6.8.0 and numpy >=2.0 (brought
         # in by pandas), pyomo will crash. We could avoid this by requiring
         # numpy <2.0, but instead we assume they will use a newer version
